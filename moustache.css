@@ -1,0 +1,95 @@
+.moustache {
+  width: 180px;
+  height: 180px;
+  left: 150px;
+  color: #372514;
+  /* background-color: currentColor; */
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: 150px 240px 0 0 currentColor, 300px 240px 0 0 currentColor;
+}
+
+.moustache::before {
+  content: "";
+  position: absolute;
+  left: 30px;
+  top: 120px;
+  width: 210px;
+  height: 120px;
+  /*border-bottom will became a part of the moustache - curve the bottom border */
+  border-bottom: solid 180px currentColor;
+  /* background-color: red; */
+  border-radius: 0 0 0 100%;
+  transform: rotate(-40deg);
+  transform-origin: right 210px;
+}
+
+.moustache::after {
+  content: "";
+  position: absolute;
+  left: 390px;
+  top: 120px;
+  width: 210px;
+  height: 120px;
+  /*border-bottom will became a part of the moustache - curve the bottom border */
+  border-bottom: solid 180px currentColor;
+  /* background-color: red; */
+  border-radius: 0 0 100% 0;
+  transform: rotate(40deg);
+  transform-origin: left 210px;
+}
+
+.moustache::before {
+  animation: shakeLeft 1s ease-in-out infinite;
+}
+
+.moustache::after {
+  animation: shakeRight 1s ease-in-out infinite;
+}
+
+.moustache:hover {
+  animation: hover 7s ease-in-out infinite alternate;
+  color: #372514;
+}
+
+@keyframes shakeLeft {
+  0% {
+    transform: rotate(-30deg);
+  }
+  50% {
+    transform: rotate(-50deg);
+  }
+  100% {
+    transform: rotate(-30deg);
+  }
+}
+
+@keyframes shakeRight {
+  0% {
+    transform: rotate(30deg);
+  }
+  50% {
+    transform: rotate(50deg);
+  }
+  100% {
+    transform: rotate(30deg);
+  }
+}
+
+@keyframes hover {
+  0% {
+    color: #372514;
+  }
+  25% {
+    color: #5c3e22;
+  }
+  50% {
+    color: #22405c;
+  }
+  75% {
+    color: #5c2223;
+  }
+  100% {
+    color: #777574;
+  }
+}
